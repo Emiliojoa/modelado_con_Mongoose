@@ -1,26 +1,54 @@
-import { Schema, model } from "mongoose"
+import { Schema, model } from "mongoose";
 
-const productSchema = new Schema({
-    userProduct: {
+const person = new Schema({
+    name: {
         type: String,
         required: true
     },
-    stock: {
-        type: String,
-        required: true
-    },
-    price: {
+    age: {
         type: Number,
         required: true
     },
-    description: {
-        type: String,
-        required: true
+    user: {
+        username: {
+            type: String,
+            required: true,
+            unique: true
+        },
+        email: {
+            type: String,
+            required: true,
+            unique: true
+        },
+        password: {
+            type: String,
+            required: true
+        },
     },
-    userID:{
-        type: Schema.Types.ObjectId,
-        ref: 'userProduct',
+    sales: [{
+        date: {
+            type: Date,
+            required: true
+        },
+        products: [{
+            name: {
+                type: String,
+                required: true
+            },
+            price: {
+                type: Number,
+                required: true
+            },
+            quantity: {
+                type: Number,
+                required: true
+            }
+        }],
+    }]
+},
+    {
+        timestamps: true
     }
-})
+)
 
-export default model("Productos", productSchema)
+export const employeeModel = model("Employee", person)

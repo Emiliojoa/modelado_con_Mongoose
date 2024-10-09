@@ -1,0 +1,46 @@
+# Mi Proyecto
+
+Modelado utilizando Mongoose
+
+## Instalación
+
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/Emiliojoa/modelado_con_Mongoose.git
+   ```
+
+# Descripción del Proyecto
+
+Este proyecto define un esquema de empleados que incluye información personal, datos de usuario y ventas realizadas por el empleado. Utiliza MongoDB y Mongoose para la estructura de la base de datos.
+
+
+# Especificaciones del Esquema
+
+```js
+Definición del Esquema (person):
+name: Nombre del empleado (obligatorio, tipo String).
+
+ age: Edad del empleado (obligatorio, tipo Number).
+
+user: Información de la cuenta del usuario que incluye:
+username: Nombre de usuario único (obligatorio, tipo String, único).
+
+email: Correo electrónico único (obligatorio, tipo String, único).
+
+password: Contraseña del usuario (obligatorio, tipo String). 
+```
+
+```js
+
+sales: Un array de ventas realizadas por el empleado. Cada venta contiene:
+
+date: Fecha de la venta (obligatorio, tipo Date).
+
+products: Lista de productos vendidos en la venta, con detalles:
+name: Nombre del producto (obligatorio, tipo String).
+
+price: Precio del producto (obligatorio, tipo Number).
+
+quantity: Cantidad del producto vendido (obligatorio, tipo Number).
+```
+*El usuario va a tener su nombre y edad, va a tener un schema embebido de user para poder validar sus credenciales donde se le solicita los siguientes campos que se registraron arriba, luego tendrá un schema de ventas también embebido donde se utilizará un array porque contendra numerosas ventas y la fecha en la que se realizaron dichas ventas, VENTAS tiene un array de objetos que tendrá como fin almacenar los diferentes productos que vende, el nombre de dichos productos, su precio y la cantidad*
